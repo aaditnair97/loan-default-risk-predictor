@@ -9,7 +9,7 @@ model = joblib.load("models/loan_eligibility_model.pkl")
 columns = joblib.load("models/columns.pkl")
 
 def get_conversion_rates(base="EUR", targets=["USD", "GBP", "INR"]):
-    API_KEY = "d8c4e33863a19dcc79b6fc46c56a2c67"
+    API_KEY = st.secrets["API_KEY"]
     url = f"https://api.exchangeratesapi.io/v1/latest?access_key={API_KEY}&base={base}&symbols={','.join(targets)}"
     try:
         res = requests.get(url)
