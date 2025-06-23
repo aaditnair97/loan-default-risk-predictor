@@ -100,3 +100,28 @@ streamlit run streamlit_app/app.py
 
 **Aadit Sabareesh Nair**  
 [🔗 LinkedIn](https://www.linkedin.com/in/aadit-sabareesh-nair)
+
+
+---
+
+## 🌍 Try It Live
+
+👉 **Streamlit App:** [loan-default-risk-predictor](https://loan-default-risk-predictor.streamlit.app)
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://loan-default-risk-predictor.streamlit.app)
+
+---
+
+## 📦 Download Model
+
+Download the trained CatBoost model:  
+**[catboost_model.cbm (GitHub Release)](https://github.com/aaditnair97/loan-default-risk-predictor/releases/download/v1.0/catboost_model.cbm)**
+
+---
+
+## 📉 Limitations
+
+- Only supports 36- or 60-month terms due to original dataset structure
+- No API or DB integration (can be added)
+- Not intended for real-world credit decisions (educational only)
+
