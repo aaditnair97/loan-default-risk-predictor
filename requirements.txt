@@ -1,6 +1,8 @@
+streamlit
+catboost
+shap
 pandas
 numpy
+matplotlib
 scikit-learn
-catboost
-streamlit
-requests
+joblib
