@@ -8,31 +8,27 @@ import uuid
 import os
 import urllib.request
 
-# ✅ Set Streamlit page config
 st.set_page_config(page_title="Loan Default Risk", layout="centered")
 
-MODEL_URL = "https://sandbox.openai.com/attachments/streamlit_catboost_model.cbm"
-MODEL_PATH = "models/catboost_model.cbm"
+MODEL_URL = "https://github.com/aaditnair97/loan-default-risk-predictor/releases/download/v1.0/catboost_model.cbm"
+MODEL_PATH = "model/catboost_model.cbm"
 
-# --- Download model if not already available ---
+# --- Download and cache the model ---
 @st.cache_resource
 def load_model():
     if not os.path.exists(MODEL_PATH):
-        os.makedirs("models", exist_ok=True)
-        st.info("Downloading model...")
+        os.makedirs("model", exist_ok=True)
+        st.info("📥 Downloading model...")
         urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
-
     model = CatBoostClassifier()
     model.load_model(MODEL_PATH)
     return model
 
 model = load_model()
 
-# --- UI Header ---
 st.title("💣 Loan Default Risk Predictor")
-st.markdown("Enter applicant details below to predict the **probability of loan default**.")
+st.markdown("Enter applicant details to estimate **probability of loan default**.")
 
-# --- Input Widgets ---
 loan_amnt = st.number_input("Loan Amount", min_value=500, max_value=50000, value=15000, step=500)
 term = st.selectbox("Loan Term (months)", options=[36, 60])
 int_rate = st.slider("Interest Rate (%)", 5.0, 30.0, 13.0, 0.1)
@@ -59,7 +55,6 @@ input_df = pd.DataFrame([{
     "pub_rec": pub_rec
 }])
 
-# --- Predict and Explain ---
 if st.button("🚀 Predict Default Risk"):
     prob_default = model.predict_proba(input_df)[0][1]
     st.metric("💣 Probability of Default", f"{prob_default:.2%}")
