@@ -108,8 +108,6 @@ streamlit run streamlit_app/app.py
 
 👉 **Streamlit App:** [loan-default-risk-predictor]([https://loan-default-risk-predictor.streamlit.app](https://loan-default-risk-predictor-d2keznstgjgadkfxsthkxs.streamlit.app/))
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([https://loan-default-risk-predictor.streamlit.app](https://loan-default-risk-predictor-d2keznstgjgadkfxsthkxs.streamlit.app/))
-
 ---
 
 ## 📦 Download Model
